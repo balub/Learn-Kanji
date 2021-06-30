@@ -1,26 +1,35 @@
 import fs from "fs/promises";
 import path from "path";
 
+import React, { Provider, useState } from "react";
 import styles from "./index.module.css";
 import { Flex, Spacer, Center, Text, Divider, Box } from "@chakra-ui/react";
 
 import SingleKanjiComponent from "../components/SingleKanjiComponent";
 import KanjiListComponent from "../components/KanjiListComponent";
 
+import { KanjiContext } from "../utils/KanjiContext";
+
 export default function Home(props) {
   const { kanjiList } = props;
+  const [selectedKanji, setSelectedKanji] = useState(0);
+
   return (
-    <div className={styles.container}>
-      <Flex h="100vh">
-        <Box w="60%">
-          <SingleKanjiComponent />
-        </Box>
-        <Divider orientation="vertical" />
-        <Box w="40%">
-          <KanjiListComponent data={kanjiList} />
-        </Box>
-      </Flex>
-    </div>
+    <KanjiContext.Provider
+      value={{ selectedKanji, setSelectedKanji, kanjiList }}
+    >
+      <div className={styles.container}>
+        <Flex h="100vh">
+          <Box w="60%">
+            <SingleKanjiComponent />
+          </Box>
+          <Divider orientation="vertical" />
+          <Box w="40%">
+            <KanjiListComponent data={kanjiList} />
+          </Box>
+        </Flex>
+      </div>
+    </KanjiContext.Provider>
   );
 }
 
