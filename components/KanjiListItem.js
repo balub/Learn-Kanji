@@ -17,7 +17,7 @@ function KanjiListItem(props) {
       onClick={setKanji}
       borderBottom={selectedKanji === index ? "#BC050C solid 3px" : ""}
     >
-      <Heading as="h1" size="xl" isTruncated>
+      <Heading as="h1" size="xl" color="#ffffff" isTruncated>
         {kanji}
       </Heading>
     </Box>
