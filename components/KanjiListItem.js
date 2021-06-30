@@ -4,7 +4,7 @@ import { Box, Heading } from "@chakra-ui/react";
 import { KanjiContext } from "../utils/KanjiContext";
 
 function KanjiListItem(props) {
-  const { setSelectedKanji } = useContext(KanjiContext);
+  const { selectedKanji, setSelectedKanji } = useContext(KanjiContext);
   const { kanji, index } = props;
 
   const setKanji = () => {
@@ -12,7 +12,11 @@ function KanjiListItem(props) {
   };
 
   return (
-    <Box textAlign="center" onClick={setKanji}>
+    <Box
+      textAlign="center"
+      onClick={setKanji}
+      borderBottom={selectedKanji === index ? "#BC050C solid 3px" : ""}
+    >
       <Heading as="h1" size="xl" isTruncated>
         {kanji}
       </Heading>
