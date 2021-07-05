@@ -19,12 +19,12 @@ export default function Home(props) {
       value={{ selectedKanji, setSelectedKanji, kanjiList }}
     >
       <div className={styles.container}>
-        <Flex h="100vh">
-          <Box w="60%">
+        <Flex>
+          <Box className={styles.singleContainer}>
             <SingleKanjiComponent />
           </Box>
           <Divider orientation="vertical" />
-          <Box w="40%">
+          <Box className={styles.listContainer}>
             <KanjiListComponent data={kanjiList} />
           </Box>
         </Flex>

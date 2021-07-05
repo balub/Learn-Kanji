@@ -7,9 +7,22 @@
   overflow: hidden;
 }
 
+.container .flex {
+  width: 100vw;
+}
+
+.singleContainer {
+  width: 60%;
+}
+.listContainer {
+  width: 40%;
+}
+
 @media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+  .singleContainer {
+    width: 70%;
+  }
+  .listContainer {
+    width: 30%;
   }
 }
