@@ -20,14 +20,25 @@ function SingleKanjiComponent() {
       >
         {kanjiList[selectedKanji].kanji}
       </Heading>
-      <HStack spacing={40} pt="150">
-        <Heading size="xl" color="#ffffff">
-          {kanjiList[selectedKanji].hiragana}
-        </Heading>
-        <Heading size="xl" color="#ffffff">
-          {kanjiList[selectedKanji].meaning}
-        </Heading>
-      </HStack>
+      {!isSmallerThan600 ? (
+        <HStack spacing={40} pt="150">
+          <Heading size="xl" color="#ffffff">
+            {kanjiList[selectedKanji].hiragana}
+          </Heading>
+          <Heading size="xl" color="#ffffff">
+            {kanjiList[selectedKanji].meaning}
+          </Heading>
+        </HStack>
+      ) : (
+        <VStack spacing={5} pt="50">
+          <Heading size="lg" color="#ffffff">
+            {kanjiList[selectedKanji].hiragana}
+          </Heading>
+          <Heading size="lg" color="#ffffff">
+            {kanjiList[selectedKanji].meaning}
+          </Heading>
+        </VStack>
+      )}
     </VStack>
   );
 }
