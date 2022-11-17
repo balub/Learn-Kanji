@@ -13,6 +13,7 @@ module.exports = {
         textGrey: "#CAC2D4",
         darkBlue: "#331B4D",
         navBarbg: "#141414",
+        silver: "#5d5d5d",
       },
     },
   },
